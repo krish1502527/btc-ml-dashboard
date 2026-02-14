@@ -1,0 +1,7 @@
+flask
+pandas
+joblib
+ta
+ccxt
+scikit-learn
+gunicorn

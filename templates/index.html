@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BTC Prediction Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📊 BTC Prediction Dashboard</h1>
+
+    <div class="summary">
+        <p><strong>Date:</strong> {{ data.date }}</p>
+        <p><strong>Market Regime:</strong> {{ data.regime }}</p>
+        <p><strong>Confidence:</strong> {{ data.confidence }}</p>
+    </div>
+
+    <div class="action" style="color: {{ data.color }};">
+        {{ data.action }}
+    </div>
+
+    <div class="window">
+        Prediction Window: {{ data.window }}
+    </div>
+
+    <!-- SIGNAL BAR -->
+    <div class="signal-box">
+        <div class="signal-label">
+            Model Signal Strength (Probability of Price Going Up)
+        </div>
+
+        <div class="signal-bar">
+            <div
+                class="signal-fill"
+                style="width: {{ data.probability }}%; background-color: {{ data.color }};">
+                {{ data.probability }}%
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="explain-box">
+        <h3>🧠 Why this prediction?</h3>
+        <ul>
+            {% for item in data.explanations %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- REFRESH -->
+    <div class="refresh-box">
+        <button onclick="location.reload()">🔄 Refresh</button>
+    </div>
+
+    <div class="footer">
+        This is a probabilistic ML signal, not financial advice.
+    </div>
+
+</div>
+
+</body>
+</html>
