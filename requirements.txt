@@ -6,3 +6,5 @@ ccxt
 scikit-learn
 gunicorn
 xgboost
+psycopg2-binary
+sqlalchemy
